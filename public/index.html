@@ -27,7 +27,7 @@
 
     <script>
       const fetchShortenedURL = async () => {
-        const response = await fetch("http://localhost:5000/links");
+        const response = await fetch("/links");
         const links = await response.json();
         console.log(links);
 
