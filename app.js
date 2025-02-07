@@ -38,7 +38,7 @@ const saveLinks = async (links) => {
 const server = createServer(async (req, res) => {
   console.log(req.url);
   if (req.method === "GET") {
-    if (req.url === "https://url-shortner-rbja.vercel.app/") {
+    if (req.url === "/") {
       return serveFile(res, "./public/index.html", "html");
     } else if (req.url === "/style.css") {
       return serveFile(res, "./public/style.css", "css");
