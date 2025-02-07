@@ -3,7 +3,6 @@ import { createServer } from "http";
 import crypto from "crypto";
 import { writeFile } from "fs/promises";
 import path from "path";
-import { link } from "fs";
 
 const PORT = 5000;
 const DATA_FILE = path.join("data", "links.json");
@@ -40,9 +39,9 @@ const server = createServer(async (req, res) => {
   console.log(req.url);
   if (req.method === "GET") {
     if (req.url === "/") {
-      return serveFile(res, "index.html", "html");
+      return serveFile(res, "./public/index.html", "html");
     } else if (req.url === "/style.css") {
-      return serveFile(res, "style.css", "css");
+      return serveFile(res, "./public/style.css", "css");
     } else if (req.url === "/links") {
       const links = await loadLinks();
       res.writeHead(200, { "Content-Type": "application/json" });
